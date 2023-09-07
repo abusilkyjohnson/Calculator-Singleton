@@ -3,7 +3,7 @@
 
 class Window : public wxFrame
 {
-
+	wxTextCtrl* textbox = nullptr;
 
 
 public:
