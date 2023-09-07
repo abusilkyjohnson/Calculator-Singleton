@@ -1,5 +1,5 @@
 #pragma once
-#include "wx/wx.h"//abu always include first to avoid errors
+#include "wx/wx.h"//abu always include first to avoid error
 #include "Window.h"
 
 
