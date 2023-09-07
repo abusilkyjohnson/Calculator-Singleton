@@ -1,6 +1,14 @@
 #pragma once
 #include "wx/wx.h"
 
+enum Button
+{
+	ZERO = 0,
+	ONE = 1,
+	TWO,
+	THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE
+
+};
 class Window : public wxFrame
 {
 	wxTextCtrl* _textbox = nullptr;
