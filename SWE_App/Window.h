@@ -6,7 +6,8 @@ enum Button
 	ZERO = 0,
 	ONE = 1,
 	TWO,
-	THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE
+	THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,COS=10,SIN,TAN,MOD,MULT,DIVI=15 ,ADD,SUBTRACT,
+	NEG = 18,EQUAL,BKSPC,CLEAR
 
 };
 class Window : public wxFrame
@@ -45,5 +46,8 @@ class Window : public wxFrame
 public:
 	Window();
 
+	void OnButtonClick(wxCommandEvent& evt);
+
+	wxDECLARE_EVENT_TABLE();
 };
 

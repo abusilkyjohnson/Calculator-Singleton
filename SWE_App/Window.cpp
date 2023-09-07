@@ -1,4 +1,7 @@
 #include "Window.h"
+wxBEGIN_EVENT_TABLE(Window, wxFrame)
+EVT_BUTTON(wxID_ANY, Window::OnButtonClick)//we could specified the button id but instead used any
+wxEND_EVENT_TABLE()
 
 Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wxSize(385, 650))//null is the parent
 {
@@ -16,21 +19,25 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_eightButt = new wxButton(this, EIGHT, "8", wxPoint(70, 490), wxSize(50, 50));
 	_nineButt = new wxButton(this, NINE, "9", wxPoint(130, 490), wxSize(50, 50));
 
-	_cosButt = new wxButton(this, ZERO, "cos", wxPoint(10, 165), wxSize(50, 50));
-	_sinButt = new wxButton(this, ONE, "sin", wxPoint(10, 220), wxSize(50, 50));
-	_tanButt = new wxButton(this, TWO, "tan", wxPoint(10, 275), wxSize(50, 50));
+	_cosButt = new wxButton(this, COS, "cos", wxPoint(10, 165), wxSize(50, 50));
+	_sinButt = new wxButton(this, SIN, "sin", wxPoint(10, 220), wxSize(50, 50));
+	_tanButt = new wxButton(this, TAN, "tan", wxPoint(10, 275), wxSize(50, 50));
 
-	_modButt = new wxButton(this, ZERO, "%M", wxPoint(70, 165), wxSize(50, 50));
-	_multiplicationButt = new wxButton(this, ONE, "*", wxPoint(70, 220), wxSize(50, 50));
-	_divisionButt = new wxButton(this, TWO, "/", wxPoint(70, 275), wxSize(50, 50));
+	_modButt = new wxButton(this, MOD, "%M", wxPoint(70, 165), wxSize(50, 50));
+	_multiplicationButt = new wxButton(this, MULT, "*", wxPoint(70, 220), wxSize(50, 50));
+	_divisionButt = new wxButton(this, DIVI, "/", wxPoint(70, 275), wxSize(50, 50));
 	
-	_additionButt = new wxButton(this, ZERO, "+", wxPoint(130, 165), wxSize(50, 50));
-	_subtractionButt = new wxButton(this, ONE, "-", wxPoint(130, 220), wxSize(50, 50));
-	_negativeButt = new wxButton(this, TWO, "-N", wxPoint(130, 275), wxSize(50, 50));
+	_additionButt = new wxButton(this, ADD, "+", wxPoint(130, 165), wxSize(50, 50));
+	_subtractionButt = new wxButton(this, SUBTRACT, "-", wxPoint(130, 220), wxSize(50, 50));
+	_negativeButt = new wxButton(this, NEG, "-N", wxPoint(130, 275), wxSize(50, 50));
 
-	_equalsButt = new wxButton(this, ZERO, "=", wxPoint(240, 450), wxSize(80, 60));
-	_backSpaceButt = new wxButton(this, ONE, "BKSPC", wxPoint(250, 220), wxSize(100, 50));
-	_clearButt = new wxButton(this, TWO, "CLR", wxPoint(250, 275), wxSize(100, 50));
+	_equalsButt = new wxButton(this, EQUAL, "=", wxPoint(240, 450), wxSize(80, 60));
+	_backSpaceButt = new wxButton(this, BKSPC, "BKSPC", wxPoint(250, 220), wxSize(100, 50));
+	_clearButt = new wxButton(this, CLEAR, "CLR", wxPoint(250, 275), wxSize(100, 50));
 
+}
+
+void Window::OnButtonClick(wxCommandEvent& evt)
+{
 }
 
