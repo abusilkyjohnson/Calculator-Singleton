@@ -1,6 +1,6 @@
 #include "Window.h"
 wxBEGIN_EVENT_TABLE(Window, wxFrame)
-EVT_BUTTON(wxID_ANY, Window::OnButtonClick)//we could specified the button id but instead used any
+EVT_BUTTON(wxID_ANY, Window::OnButtonClick)//we could specified the button id but instead used any in the () the afterwards EVT relates to the click which rn we have wx button
 wxEND_EVENT_TABLE()
 
 Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wxSize(385, 650))//null is the parent
@@ -39,5 +39,9 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 
 void Window::OnButtonClick(wxCommandEvent& evt)
 {
+	wxObject* invoker = evt.GetEventObject();
+	wxButton* evtButton = static_cast<wxButton*>(invoker);
+
+	_textbox->AppendText(evtButton->GetLabel());
 }
 
