@@ -11,6 +11,6 @@ class MainCalculator : public wxApp
 
 public :
 	
-	bool OnInit(); // Must be spell exactly as this since function already exist
+	bool OnInit(); // Must be spelled exactly as this since function already exist
 };
 
