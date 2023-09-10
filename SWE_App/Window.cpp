@@ -39,6 +39,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_backSpaceButt = new wxButton(this, BKSPC, "BKSPC", wxPoint(250, 220), wxSize(100, 50));
 	_clearButt = new wxButton(this, CLEAR, "CLR", wxPoint(250, 275), wxSize(100, 50));
 
+	_dotFloatButt = new wxButton(this, CLEAR, ".", wxPoint(130, 550), wxSize(50, 50));
 
 
 }

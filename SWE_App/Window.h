@@ -41,6 +41,8 @@ class Window : public wxFrame
 	wxButton* _backSpaceButt = nullptr;
 	wxButton* _clearButt = nullptr;
 
+	wxButton* _dotFloatButt = nullptr;
+
 	
 
 public:
