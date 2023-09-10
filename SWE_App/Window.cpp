@@ -45,10 +45,18 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 
 void Window::OnButtonClick(wxCommandEvent& evt)
 {
+	int num;
 	
 	wxObject* invoker = evt.GetEventObject();
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
-
+	if (evtButton->GetId() <= 10)
+	{
+		num = evtButton->GetId();
+	}
 	_textbox->AppendText(evtButton->GetLabel());
+	if (evtButton->GetId() == 21)
+	{
+		_textbox->Clear();
+	}
 }
 
