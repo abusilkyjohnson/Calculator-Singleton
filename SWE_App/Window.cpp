@@ -11,7 +11,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
 
 
-	_zeroButt = new wxButton(this, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
+	_zeroButt = new wxButton(this, ZERO, "1-2", wxPoint(70, 550), wxSize(50, 50));
 	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
 	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
 	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
@@ -52,25 +52,22 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 {
 	double rightNum, leftNum;
 	double num, secondNum;
-	wxString check, secondCheck;
+	float result;
+	wxString rightString, leftString;
 	wxObject* invoker = evt.GetEventObject();
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
 	if (evtButton->GetId() == EQUAL)
 	{
 			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "M" "*" "/" "+" "-" );
-			check = (tokenizer.GetNextToken());//gets token before delimiter
-			num = wxAtof(check);
-			rightNum = num;
-			if (tokenizer.GetLastDelimiter() == '-')
+			leftString = (tokenizer.GetNextToken());
+			leftNum = wxAtof(leftString);
+			leftNum = leftNum;
+
+			if (tokenizer.HasMoreTokens() == true)
 			{
-				//num = 4;
-				//leftNum = num;
-				if (tokenizer.HasMoreTokens() == true)
-				{
-					secondCheck = tokenizer.GetString();// gets tokens after delimiter 
-					secondNum = wxAtof(secondCheck);
-					leftNum = secondNum;
-				}
+				rightString = tokenizer.GetString();
+				rightNum = wxAtof(rightString);
+				rightNum = rightNum;
 			}
 		
 	}
