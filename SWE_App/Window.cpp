@@ -11,7 +11,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
 
 
-	_zeroButt = new wxButton(this, ZERO, "5m2", wxPoint(70, 550), wxSize(50, 50));
+	_zeroButt = new wxButton(this, ZERO, "5M2", wxPoint(70, 550), wxSize(50, 50));
 	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
 	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
 	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
@@ -58,7 +58,8 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
 	if(evtButton->GetId() == EQUAL)
 	{
-			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "M" "*" "/" "+" "-" );
+		//todo: add decimalworking,basic error checking, bkspace
+			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "M" "*" "/" "+" "-" );// MUST CHANGE remember zero is ur test subject rn MUST CHANGE
 			leftString = (tokenizer.GetNextToken());
 			leftNum = wxAtof(leftString);
 			leftNum = leftNum;
@@ -114,9 +115,13 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 
 
 
-	_textbox->AppendText(evtButton->GetLabel());
 	if (evtButton->GetId() == BKSPC)
 	{
+		_textbox->GetLabel().Remove(_textbox->GetLastPosition());
+	}
+	if(evtButton->GetId() != BKSPC)//controls all my other label show but back space
+	{
+		_textbox->AppendText(evtButton->GetLabel());
 	}
 	if (evtButton->GetId() == CLEAR)
 	{
