@@ -59,7 +59,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	if(evtButton->GetId() == EQUAL)
 	{
 		//todo: add decimalworking,basic error checking, bkspace
-			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "M" "*" "/" "+" "-" );// MUST CHANGE remember zero is ur test subject rn MUST CHANGE
+			wxStringTokenizer tokenizer(_textbox->GetValue(), "M" "*" "/" "+" "-");// MUST CHANGE remember zero is ur test subject rn MUST CHANGE
 			leftString = (tokenizer.GetNextToken());
 			leftNum = wxAtof(leftString);
 			leftNum = leftNum;
@@ -119,7 +119,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	{
 		_textbox->GetLabel().Remove(_textbox->GetLastPosition());
 	}
-	if(evtButton->GetId() != BKSPC)//controls all my other label show but back space
+	if(evtButton->GetId() != BKSPC && evtButton->GetId() != EQUAL)//controls all my other label show but back space
 	{
 		_textbox->AppendText(evtButton->GetLabel());
 	}
