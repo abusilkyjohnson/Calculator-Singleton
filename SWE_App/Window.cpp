@@ -76,6 +76,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				result = leftNum + rightNum;
 				result = result;
 				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->Clear();
 				_textbox->AppendText(resultString);
 
 			}
@@ -84,6 +85,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				result = leftNum - rightNum;
 				result = result;
 				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->Clear();
 				_textbox->AppendText(resultString);
 
 			}
@@ -92,6 +94,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				result = leftNum / rightNum;
 				result = result;
 				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->Clear();
 				_textbox->AppendText(resultString);
 
 			}
@@ -100,6 +103,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				result = leftNum * rightNum;
 				result = result;
 				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->Clear();
 				_textbox->AppendText(resultString);
 
 			}
@@ -108,6 +112,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				result = (int)leftNum % (int)rightNum;
 				result = result;
 				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->Clear();
 				_textbox->AppendText(resultString);
 				
 			}
