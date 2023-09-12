@@ -11,7 +11,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
 
 
-	_zeroButt = new wxButton(this, ZERO, "1-2", wxPoint(70, 550), wxSize(50, 50));
+	_zeroButt = new wxButton(this, ZERO, "5m2", wxPoint(70, 550), wxSize(50, 50));
 	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
 	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
 	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
@@ -52,11 +52,11 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 {
 	double rightNum, leftNum;
 	double num, secondNum;
-	float result;
-	wxString rightString, leftString;
+	double result;
+	wxString rightString, leftString, resultString;
 	wxObject* invoker = evt.GetEventObject();
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
-	if (evtButton->GetId() == EQUAL)
+	if(evtButton->GetId() == EQUAL)
 	{
 			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "M" "*" "/" "+" "-" );
 			leftString = (tokenizer.GetNextToken());
@@ -69,7 +69,47 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				rightNum = wxAtof(rightString);
 				rightNum = rightNum;
 			}
-		
+
+			if (tokenizer.GetLastDelimiter() == '+')
+			{
+				result = leftNum + rightNum;
+				result = result;
+				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->AppendText(resultString);
+
+			}
+			else if (tokenizer.GetLastDelimiter() == '-')
+			{
+				result = leftNum - rightNum;
+				result = result;
+				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->AppendText(resultString);
+
+			}
+			else if (tokenizer.GetLastDelimiter() == '/')
+			{
+				result = leftNum / rightNum;
+				result = result;
+				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->AppendText(resultString);
+
+			}
+			else if (tokenizer.GetLastDelimiter() == '*')
+			{
+				result = leftNum * rightNum;
+				result = result;
+				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->AppendText(resultString);
+
+			}
+			else if (tokenizer.GetLastDelimiter() == 'M')
+			{
+				result = (int)leftNum % (int)rightNum;
+				result = result;
+				resultString = wxString::Format(wxT("%f"), result);
+				_textbox->AppendText(resultString);
+				
+			}
 	}
 
 
