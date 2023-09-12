@@ -1,4 +1,7 @@
 #include "Window.h"
+#include <wx/tokenzr.h>
+
+
 wxBEGIN_EVENT_TABLE(Window, wxFrame)
 EVT_BUTTON(wxID_ANY, Window::OnButtonClick)//we could specified the button id but instead used any in the () the afterwards EVT relates to the click which rn we have wx button
 wxEND_EVENT_TABLE()
@@ -8,7 +11,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
 
 
-	_zeroButt = new wxButton(this, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
+	_zeroButt = new wxButton(this, ZERO, "24+35", wxPoint(70, 550), wxSize(50, 50));
 	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
 	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
 	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
@@ -46,18 +49,30 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 
 void Window::OnButtonClick(wxCommandEvent& evt)
 {
-	int num;
-	
+	double rightNum, leftNum;
+	double num;
+	wxString check;
 	wxObject* invoker = evt.GetEventObject();
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
-	if (evtButton->GetId() <= 10)
+	if (evtButton->GetId() == 0)
 	{
-		num = evtButton->GetId();
+			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "+");
+			check = (tokenizer.GetNextToken());
+			num = wxAtof(check);
+			rightNum = num;
+		
 	}
+
+
+
 	_textbox->AppendText(evtButton->GetLabel());
-	if (evtButton->GetId() == 21)
+	if (evtButton->GetId() == BKSPC)
+	{
+	}
+	if (evtButton->GetId() == CLEAR)
 	{
 		_textbox->Clear();
+		
 	}
 }
 
