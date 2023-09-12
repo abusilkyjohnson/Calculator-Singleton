@@ -51,19 +51,25 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 {
 	double rightNum, leftNum;
 	double num, secondNum;
-	wxString check;
+	wxString check, secondCheck;
 	wxObject* invoker = evt.GetEventObject();
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
 	if (evtButton->GetId() == EQUAL)
 	{
-			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "-");
+			wxStringTokenizer tokenizer(_zeroButt->GetLabel(), "-" );
 			check = (tokenizer.GetNextToken());
 			num = wxAtof(check);
 			rightNum = num;
 			if (tokenizer.GetLastDelimiter() == '-')
 			{
-				num = 4;
-				leftNum = num;
+				//num = 4;
+				//leftNum = num;
+				if (tokenizer.HasMoreTokens() == true)
+				{
+					secondCheck = tokenizer.GetString();
+					secondNum = wxAtof(secondCheck);
+					leftNum = secondNum;
+				}
 			}
 		
 	}
