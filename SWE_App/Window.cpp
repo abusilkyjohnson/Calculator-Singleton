@@ -58,7 +58,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
 	if(evtButton->GetId() == EQUAL)
 	{
-			wxStringTokenizer tokenizer(_textbox->GetValue(), "%" "*" "/" "+" "-");// MUST CHANGE remember zero is ur test subject rn MUST CHANGE
+			wxStringTokenizer tokenizer(_textbox->GetValue(), "%" "*" "/" "+" "-");
 			leftString = (tokenizer.GetNextToken());
 			leftNum = wxAtof(leftString);
 			leftNum = leftNum;
