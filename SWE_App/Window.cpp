@@ -58,12 +58,12 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
 	if(evtButton->GetId() == EQUAL)
 	{
+		//not sure on how to try caTCH commented for final commit
 			wxStringTokenizer tokenizer(_textbox->GetValue(), "%" "*" "/" "+" "-");
 			leftString = (tokenizer.GetNextToken());
 			leftNum = wxAtof(leftString);
 			leftNum = leftNum;
-
-			if (tokenizer.HasMoreTokens() == true)
+			 if (tokenizer.HasMoreTokens() == true)
 			{
 				rightString = tokenizer.GetString();
 				rightNum = wxAtof(rightString);
