@@ -11,7 +11,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
 
 
-	_zeroButt = new wxButton(this, ZERO, "5M2", wxPoint(70, 550), wxSize(50, 50));
+	_zeroButt = new wxButton(this, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
 	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
 	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
 	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
@@ -30,7 +30,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_sinButt->Disable();
 	_tanButt->Disable();
 
-	_modButt = new wxButton(this, MOD, "M", wxPoint(70, 165), wxSize(50, 50));
+	_modButt = new wxButton(this, MOD, "%", wxPoint(70, 165), wxSize(50, 50));
 	_multiplicationButt = new wxButton(this, MULT, "*", wxPoint(70, 220), wxSize(50, 50));
 	_divisionButt = new wxButton(this, DIVI, "/", wxPoint(70, 275), wxSize(50, 50));
 	
@@ -43,7 +43,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_backSpaceButt = new wxButton(this, BKSPC, "BKSPC", wxPoint(250, 220), wxSize(100, 50));
 	_clearButt = new wxButton(this, CLEAR, "CLR", wxPoint(250, 275), wxSize(100, 50));
 
-	_dotFloatButt = new wxButton(this, CLEAR, ".", wxPoint(130, 550), wxSize(50, 50));
+	_dotFloatButt = new wxButton(this, DECIMALDOT, ".", wxPoint(130, 550), wxSize(50, 50));
 
 
 }
@@ -58,8 +58,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
 	if(evtButton->GetId() == EQUAL)
 	{
-		//todo: add decimalworking,basic error checking, bkspace
-			wxStringTokenizer tokenizer(_textbox->GetValue(), "M" "*" "/" "+" "-");// MUST CHANGE remember zero is ur test subject rn MUST CHANGE
+			wxStringTokenizer tokenizer(_textbox->GetValue(), "%" "*" "/" "+" "-");// MUST CHANGE remember zero is ur test subject rn MUST CHANGE
 			leftString = (tokenizer.GetNextToken());
 			leftNum = wxAtof(leftString);
 			leftNum = leftNum;
@@ -107,7 +106,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 				_textbox->AppendText(resultString);
 
 			}
-			else if (tokenizer.GetLastDelimiter() == 'M')
+			else if (tokenizer.GetLastDelimiter() == '%')
 			{
 				result = (int)leftNum % (int)rightNum;
 				result = result;
@@ -122,7 +121,9 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 
 	if (evtButton->GetId() == BKSPC)
 	{
-		_textbox->GetLabel().Remove(_textbox->GetLastPosition());
+		wxString toDelete = _textbox->GetValue().RemoveLast();
+		_textbox->Clear();
+		_textbox->AppendText(toDelete);
 	}
 	if(evtButton->GetId() != BKSPC && evtButton->GetId() != EQUAL)//controls all my other label show but back space
 	{
