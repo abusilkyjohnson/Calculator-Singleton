@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "ButtonFactory.h"
 #include <wx/tokenzr.h>
 
 
