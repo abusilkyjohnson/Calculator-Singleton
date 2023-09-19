@@ -7,10 +7,10 @@ class ButtonFactory
 
 
 public:
-	wxButton* Generate(wxWindow* parent, int ID, const wxString& label,
+	static wxButton* Generate(wxWindow* parent, int ID, const wxString& label,
 		const wxPoint& position, const wxSize& size);
 
-	wxButton* CreateZeroButton(wxFrame* screen);
+	static wxButton* CreateZeroButton();
 
 };
 

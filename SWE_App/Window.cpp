@@ -12,7 +12,8 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
 
 
-	_zeroButt = new wxButton(this, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
+	//_zeroButt = new wxButton(this, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
+	_zeroButt = ButtonFactory::CreateZeroButton();
 	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
 	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
 	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
