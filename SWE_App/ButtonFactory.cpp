@@ -1,17 +1,15 @@
 #include "ButtonFactory.h"
 #include "Window.h"
 
-wxButton* ButtonFactory::GenerateButtons(wxWindow* parent, int ID, const wxString& name, const wxPoint& position, const wxSize& size, bool Enabled)
+wxButton* ButtonFactory::Generate(wxWindow* parent, int ID, const wxString& label,
+	const wxPoint& position, const wxSize& size)
 {
-	return nullptr;
+	wxButton* button = new wxButton(parent, ID, label, position, size);
+	return button;
+	
 }
 
-void ButtonFactory::SetOne(wxFrame* parent)
+wxButton* ButtonFactory::CreateZeroButton(wxFrame* screen)
 {
-	_oneButt = new wxButton(parent, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
-}
-
-wxButton* ButtonFactory::GetOne()
-{
-	return _oneButt;
+	return Generate(screen, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
 }

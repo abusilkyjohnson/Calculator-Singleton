@@ -3,15 +3,14 @@
 class Window;
 class ButtonFactory
 {
-	
-	wxButton* _oneButt = nullptr;
+
 
 
 public:
-	static wxButton* GenerateButtons(wxWindow* parent, int ID, const wxString& name,const wxPoint& position, const wxSize& size, bool Enabled = true);
+	wxButton* Generate(wxWindow* parent, int ID, const wxString& label,
+		const wxPoint& position, const wxSize& size);
 
-	void SetOne(wxFrame* parent);
+	wxButton* CreateZeroButton(wxFrame* screen);
 
-	wxButton* GetOne();
 };
 

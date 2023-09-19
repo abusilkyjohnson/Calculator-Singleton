@@ -46,7 +46,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 
 	_dotFloatButt = new wxButton(this, DECIMALDOT, ".", wxPoint(130, 550), wxSize(50, 50));
 
-
+	
 }
 
 void Window::OnButtonClick(wxCommandEvent& evt)
