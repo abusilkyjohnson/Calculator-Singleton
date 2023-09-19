@@ -9,7 +9,13 @@
 	
 }
 
-wxButton* ButtonFactory::CreateZeroButton(wxFrame* screen)
+ wxTextCtrl* ButtonFactory::CreateTextBox(wxFrame* screen)
+ {
+	 wxTextCtrl* textBox = new wxTextCtrl(screen, 101, "", wxPoint(10, 10), wxSize(350, 150));
+	 return textBox;
+ }
+
+ wxButton* ButtonFactory::CreateZeroButton(wxFrame* screen)
 {
 	wxButton* zero = Generate(screen, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
 	

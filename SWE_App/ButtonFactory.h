@@ -10,6 +10,9 @@ public:
 	static wxButton* Generate(wxWindow* parent, int ID, const wxString& label,
 		const wxPoint& position, const wxSize& size);
 
+
+	static wxTextCtrl* CreateTextBox(wxFrame* screen);
+
 	static wxButton* CreateZeroButton(wxFrame* screen);
 	static wxButton* CreateOneButton(wxFrame* screen);
 	static wxButton* CreateTwoButton(wxFrame* screen);

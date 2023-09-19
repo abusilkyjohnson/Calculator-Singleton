@@ -9,8 +9,7 @@ wxEND_EVENT_TABLE()
 
 Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wxSize(385, 650))//null is the parent
 {
-	_textbox = new wxTextCtrl(this, 101, "", wxPoint(10, 10), wxSize(350, 150));//this is the parent since the window is an invoking object
-
+	_textbox = ButtonFactory::CreateTextBox(this);
 
 	
 	_zeroButt = ButtonFactory::CreateZeroButton(this);
