@@ -26,5 +26,23 @@ public:
 	static wxButton* CreateTanButton(wxFrame* screen);
 
 
+	static wxButton* CreateModButton(wxFrame* screen);
+	static wxButton* CreateMultiplicationButton(wxFrame* screen);
+	static wxButton* CreateDivisionButton(wxFrame* screen);
+
+
+	static wxButton* CreateAddButton(wxFrame* screen);
+	static wxButton* CreateSubtractionButton(wxFrame* screen);
+	static wxButton* CreateNegativeButton(wxFrame* screen);
+	
+	
+	static wxButton* CreateEqualButton(wxFrame* screen);
+	static wxButton* CreateBackSpaceButton(wxFrame* screen);
+	static wxButton* CreateClearButton(wxFrame* screen);
+
+	static wxButton* CreateDeciDotButton(wxFrame* screen);
+
+
+
 };
 
