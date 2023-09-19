@@ -13,21 +13,21 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 
 
 	//_zeroButt = new wxButton(this, ZERO, "0", wxPoint(70, 550), wxSize(50, 50));
-	_zeroButt = ButtonFactory::CreateZeroButton();
-	_oneButt = new wxButton(this, ONE, "1", wxPoint(10, 350), wxSize(50, 50));
-	_twoButt = new wxButton(this, TWO, "2", wxPoint(70, 350), wxSize(50, 50));
-	_threeButt = new wxButton(this, THREE, "3", wxPoint(130, 350), wxSize(50, 50));
-	_fourButt = new wxButton(this, FOUR, "4", wxPoint(10, 420), wxSize(50, 50));
-	_fiveButt = new wxButton(this, FIVE, "5", wxPoint(70, 420), wxSize(50, 50));
-	_sixButt = new wxButton(this, SIX, "6", wxPoint(130, 420), wxSize(50, 50));
-	_sevenButt = new wxButton(this, SEVEN, "7", wxPoint(10, 490), wxSize(50, 50));
-	_eightButt = new wxButton(this, EIGHT, "8", wxPoint(70, 490), wxSize(50, 50));
-	_nineButt = new wxButton(this, NINE, "9", wxPoint(130, 490), wxSize(50, 50));
+	_zeroButt = ButtonFactory::CreateZeroButton(this);
+	_oneButt = ButtonFactory::CreateOneButton(this);
+	_twoButt = ButtonFactory::CreateTwoButton(this);
+	_threeButt = ButtonFactory::CreateThreeButton(this);
+	_fourButt = ButtonFactory::CreateFourButton(this);
+	_fiveButt = ButtonFactory::CreateFiveButton(this);
+	_sixButt = ButtonFactory::CreateSixButton(this);
+	_sevenButt = ButtonFactory::CreateSevenButton(this);
+	_eightButt = ButtonFactory::CreateEightButton(this);
+	_nineButt = ButtonFactory::CreateNineButton(this);
 
 
-	_cosButt = new wxButton(this, COS, "cos", wxPoint(10, 165), wxSize(50, 50));
-	_sinButt = new wxButton(this, SIN, "sin", wxPoint(10, 220), wxSize(50, 50));
-	_tanButt = new wxButton(this, TAN, "tan", wxPoint(10, 275), wxSize(50, 50));
+	_cosButt = ButtonFactory::CreateCosButton(this);
+	_sinButt = ButtonFactory::CreateSinButton(this);
+	_tanButt = ButtonFactory::CreateTanButton(this);
 	_cosButt->Disable();
 	_sinButt->Disable();
 	_tanButt->Disable();
