@@ -17,7 +17,9 @@ CalculatorProcessor* CalculatorProcessor::GetInstance()
 	return calcProcessorSingleton_;
 }
 
-wxString* CalculatorProcessor::CalculationAdd()
+
+
+wxString CalculatorProcessor::CalculationAdd()
 {
 	double rightNum, leftNum;
 	double num, secondNum;

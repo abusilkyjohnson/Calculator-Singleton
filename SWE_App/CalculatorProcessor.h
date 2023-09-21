@@ -1,4 +1,7 @@
 #pragma once
+#include "Window.h"
+#include <wx/tokenzr.h>
+#include "ButtonFactory.h"
 
 class Window;
 
@@ -17,6 +20,6 @@ public:
 
 
 	static CalculatorProcessor* GetInstance();
-	wxString* CalculationAdd();
+	wxString CalculationAdd();
 };
 
