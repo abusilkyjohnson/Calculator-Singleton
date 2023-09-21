@@ -1,6 +1,8 @@
 #include "Window.h"
 #include "ButtonFactory.h"
 #include <wx/tokenzr.h>
+#include "CalculatorProcessor.h"
+
 
 
 wxBEGIN_EVENT_TABLE(Window, wxFrame)
@@ -73,9 +75,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 
 			if (tokenizer.GetLastDelimiter() == '+')
 			{
-				result = leftNum + rightNum;
-				result = result;
-				resultString = wxString::Format(wxT("%f"), result);
+				CalculatorProcessor::GetInstance()->CalculationAdd();
 				_textbox->Clear();
 				_textbox->AppendText(resultString);
 

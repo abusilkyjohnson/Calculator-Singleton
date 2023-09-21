@@ -6,10 +6,10 @@ class Window;
 class CalculatorProcessor // my singleton
 {
 
-protected:
+private:
 
 	static CalculatorProcessor* calcProcessorSingleton_;
-	CalculatorProcessor(){};
+	CalculatorProcessor(){};// private so it cant be constructed anywhere else hence singleton
 
 public:
 	CalculatorProcessor(CalculatorProcessor& other) = delete;
@@ -17,6 +17,6 @@ public:
 
 
 	static CalculatorProcessor* GetInstance();
-	wxString CalculationAdd(wxString sign);
+	wxString* CalculationAdd();
 };
 
