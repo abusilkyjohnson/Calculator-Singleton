@@ -20,6 +20,6 @@ public:
 
 
 	static CalculatorProcessor* GetInstance();
-	wxString CalculationAdd();
+	double CalculationAdd(double num, double num2,wxTextCtrl* nextNum);
 };
 

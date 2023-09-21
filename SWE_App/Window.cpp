@@ -2,7 +2,7 @@
 #include "ButtonFactory.h"
 #include <wx/tokenzr.h>
 #include "CalculatorProcessor.h"
-
+#include "vector"
 
 
 wxBEGIN_EVENT_TABLE(Window, wxFrame)
@@ -13,7 +13,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 {
 	_textbox = ButtonFactory::CreateTextBox(this);
 
-	
+
 	_zeroButt = ButtonFactory::CreateZeroButton(this);
 	_oneButt = ButtonFactory::CreateOneButton(this);
 	_twoButt = ButtonFactory::CreateTwoButton(this);
@@ -36,7 +36,7 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 	_modButt = ButtonFactory::CreateModButton(this);
 	_multiplicationButt = ButtonFactory::CreateMultiplicationButton(this);
 	_divisionButt = ButtonFactory::CreateDivisionButton(this);
-	
+
 	_additionButt = ButtonFactory::CreateAddButton(this);
 	_subtractionButt = ButtonFactory::CreateSubtractionButton(this);
 	_negativeButt = ButtonFactory::CreateNegativeButton(this);
@@ -48,74 +48,84 @@ Window::Window() : wxFrame(nullptr, 100, "Abu Calculator", wxPoint(400, 200), wx
 
 	_dotFloatButt = ButtonFactory::CreateDeciDotButton(this);
 
-	
+
 }
 
 void Window::OnButtonClick(wxCommandEvent& evt)
 {
+	std::vector<double> NumHolder;
 	double rightNum, leftNum;
 	double num, secondNum;
 	double result;
 	wxString rightString, leftString, resultString;
 	wxObject* invoker = evt.GetEventObject();
 	wxButton* evtButton = static_cast<wxButton*>(invoker);
-	if(evtButton->GetId() == EQUAL)
+	if (evtButton->GetId() == EQUAL)
 	{
 		//not sure on how to try caTCH commented for final commit
-			wxStringTokenizer tokenizer(_textbox->GetValue(), "%" "*" "/" "+" "-");
-			leftString = (tokenizer.GetNextToken());
-			leftNum = wxAtof(leftString);
-			leftNum = leftNum;
-			 if (tokenizer.HasMoreTokens() == true)
+		wxStringTokenizer tokenizer(_textbox->GetValue(), "%" "*" "/" "+" "-");
+		leftString = (tokenizer.GetNextToken());
+		leftNum = wxAtof(leftString);
+		leftNum = leftNum;
+		if (tokenizer.HasMoreTokens() == true)
+		{
+			rightString = tokenizer.GetString();
+			rightNum = wxAtof(rightString);
+			rightNum = rightNum;
+		}
+
+		if (tokenizer.GetLastDelimiter() == '+')
+		{
+			/*for (int i = 0; i <= NumHolder.size(); i++)
 			{
 				rightString = tokenizer.GetString();
-				rightNum = wxAtof(rightString);
-				rightNum = rightNum;
-			}
+				num = wxAtof(rightString);
+				num = CalculatorProcessor::GetInstance()->CalculationAdd(num);
+				NumHolder.push_back(num);
+			}*/
+			//wxString abu = _textbox->GetValue();
+			//CalculatorProcessor::GetInstance()->CalculationAdd(rightNum, _textbox);
+			//_textbox->Clear();
+			_textbox->AppendText(resultString = wxString::Format(wxT("%f"),
+				CalculatorProcessor::GetInstance()->CalculationAdd(leftNum, rightNum, _textbox)));
 
-			if (tokenizer.GetLastDelimiter() == '+')
-			{
-				CalculatorProcessor::GetInstance()->CalculationAdd();
-				_textbox->Clear();
-				_textbox->AppendText(resultString);
+		}
+		else if (tokenizer.GetLastDelimiter() == '-')
+		{
+			result = leftNum - rightNum;
+			result = result;
+			resultString = wxString::Format(wxT("%f"), result);
+			_textbox->Clear();
+			_textbox->AppendText(resultString);
 
-			}
-			else if (tokenizer.GetLastDelimiter() == '-')
-			{
-				result = leftNum - rightNum;
-				result = result;
-				resultString = wxString::Format(wxT("%f"), result);
-				_textbox->Clear();
-				_textbox->AppendText(resultString);
+		}
+		else if (tokenizer.GetLastDelimiter() == '/')
+		{
+			result = leftNum / rightNum;
+			result = result;
+			resultString = wxString::Format(wxT("%f"), result);
+			_textbox->Clear();
+			_textbox->AppendText(resultString);
 
-			}
-			else if (tokenizer.GetLastDelimiter() == '/')
-			{
-				result = leftNum / rightNum;
-				result = result;
-				resultString = wxString::Format(wxT("%f"), result);
-				_textbox->Clear();
-				_textbox->AppendText(resultString);
+		}
+		else if (tokenizer.GetLastDelimiter() == '*')
+		{
+			result = leftNum * rightNum;
+			result = result;
+			resultString = wxString::Format(wxT("%f"), result);
+			_textbox->Clear();
+			_textbox->AppendText(resultString);
 
-			}
-			else if (tokenizer.GetLastDelimiter() == '*')
-			{
-				result = leftNum * rightNum;
-				result = result;
-				resultString = wxString::Format(wxT("%f"), result);
-				_textbox->Clear();
-				_textbox->AppendText(resultString);
+		}
+		else if (tokenizer.GetLastDelimiter() == '%')
+		{
+			result = (int)leftNum % (int)rightNum;
+			result = result;
+			resultString = wxString::Format(wxT("%f"), result);
+			_textbox->Clear();
+			_textbox->AppendText(resultString);
 
-			}
-			else if (tokenizer.GetLastDelimiter() == '%')
-			{
-				result = (int)leftNum % (int)rightNum;
-				result = result;
-				resultString = wxString::Format(wxT("%f"), result);
-				_textbox->Clear();
-				_textbox->AppendText(resultString);
-				
-			}
+		}
 	}
 
 
@@ -126,14 +136,14 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		_textbox->Clear();
 		_textbox->AppendText(toDelete);
 	}
-	if(evtButton->GetId() != BKSPC && evtButton->GetId() != EQUAL)//controls all my other label show but back space
+	if (evtButton->GetId() != BKSPC && evtButton->GetId() != EQUAL)//controls all my other label show but back space
 	{
 		_textbox->AppendText(evtButton->GetLabel());
 	}
 	if (evtButton->GetId() == CLEAR)
 	{
 		_textbox->Clear();
-		
+
 	}
 }
 

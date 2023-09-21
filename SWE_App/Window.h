@@ -12,6 +12,7 @@ enum Button
 };
 class Window : public wxFrame
 {
+protected:
 	wxTextCtrl* _textbox = nullptr;
 
 	wxButton* _zeroButt = nullptr;
