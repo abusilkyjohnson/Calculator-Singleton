@@ -25,7 +25,6 @@ double CalculatorProcessor::CalculationAdd(double num, double num2,wxTextCtrl* n
 	double result;
 	wxStringTokenizer tokenizer(nextNum->GetValue(), "%" "*" "/" "+" "-");
 	wxString resultString = "";
-	num = wxAtof(tokenizer.GetNextToken());
 	result = num + num2;
 	result = result;
 

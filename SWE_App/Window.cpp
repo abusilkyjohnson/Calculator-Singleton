@@ -85,7 +85,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 			}*/
 			//wxString abu = _textbox->GetValue();
 			//CalculatorProcessor::GetInstance()->CalculationAdd(rightNum, _textbox);
-			//_textbox->Clear();
+			_textbox->Clear();
 			_textbox->AppendText(resultString = wxString::Format(wxT("%f"),
 				CalculatorProcessor::GetInstance()->CalculationAdd(leftNum, rightNum, _textbox)));
 
