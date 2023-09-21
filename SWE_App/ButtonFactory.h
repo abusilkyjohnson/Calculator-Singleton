@@ -5,7 +5,6 @@ class ButtonFactory
 {
 
 
-
 public:
 	static wxButton* Generate(wxWindow* parent, int ID, const wxString& label,
 		const wxPoint& position, const wxSize& size);

@@ -13,6 +13,8 @@ private:
 
 	static CalculatorProcessor* calcProcessorSingleton_;
 	CalculatorProcessor(){};// private so it cant be constructed anywhere else hence singleton
+	std::vector<double> _numHolder;
+
 
 public:
 	CalculatorProcessor(CalculatorProcessor& other) = delete;
@@ -20,6 +22,6 @@ public:
 
 
 	static CalculatorProcessor* GetInstance();
-	double CalculationAdd(double num, double num2,wxTextCtrl* nextNum);
+	double CalculationAdd(double num, double num2, wxString nextNum);
 };
 

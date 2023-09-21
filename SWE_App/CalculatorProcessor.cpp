@@ -19,14 +19,18 @@ CalculatorProcessor* CalculatorProcessor::GetInstance()
 
 
 
-double CalculatorProcessor::CalculationAdd(double num, double num2,wxTextCtrl* nextNum)
+double CalculatorProcessor::CalculationAdd(double num, double num2,wxString nextNum)
 {
-	
-	double result;
-	wxStringTokenizer tokenizer(nextNum->GetValue(), "%" "*" "/" "+" "-");
-	wxString resultString = "";
-	result = num + num2;
-	result = result;
 
+	double result;
+	wxStringTokenizer tokenizer(nextNum, "%" "*" "/" "+" "-");
+	wxString resultString = "";
+	wxString leftS = tokenizer.GetNextToken();
+	num = wxAtof(leftS);
+	num = num;
+	wxString rightString = tokenizer.GetString();
+	num2 = wxAtof(rightString);
+	num2 = num2;
+	result = num + num2;
 	return result;
 }
