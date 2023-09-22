@@ -111,6 +111,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 			_textbox->AppendText(resultString);
 
 		}
+
 	}
 
 
@@ -121,11 +122,35 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		_textbox->Clear();
 		_textbox->AppendText(toDelete);
 	}
-	if (evtButton->GetId() != BKSPC && evtButton->GetId() != EQUAL)//controls all my other label show but back space
+	 if (evtButton->GetId() == COS)
+	{
+		double answerHolder = CalculatorProcessor::GetInstance()->CalculationCos(leftNum, _textbox->GetValue());
+		_textbox->Clear();
+		wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+		_textbox->AppendText(resultString);
+
+	}
+	else if (evtButton->GetId() == SIN)
+	{
+		double answerHolder = CalculatorProcessor::GetInstance()->CalculationSin(leftNum, _textbox->GetValue());
+		_textbox->Clear();
+		wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+		_textbox->AppendText(resultString);
+
+	}
+	else if (evtButton->GetId() == TAN)
+	{
+		double answerHolder = CalculatorProcessor::GetInstance()->CalculationTan(leftNum, _textbox->GetValue());
+		_textbox->Clear();
+		wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+		_textbox->AppendText(resultString);
+
+	}
+	else if (evtButton->GetId() != BKSPC && evtButton->GetId() != EQUAL && evtButton->GetId() != COS && evtButton->GetId() != TAN && evtButton->GetId() != SIN)//controls all my other label show but back space
 	{
 		_textbox->AppendText(evtButton->GetLabel());
 	}
-	if (evtButton->GetId() == CLEAR)
+	 if (evtButton->GetId() == CLEAR)
 	{
 		_textbox->Clear();
 

@@ -30,8 +30,8 @@ public:
 	double CalculationMultiply(double num, double num2, wxString nextNum);
 	double CalculationMod(double num, double num2, wxString nextNum);
 
-	//double CalculationSubtract(double num, double num2, wxString nextNum);
-	//double CalculationSubtract(double num, double num2, wxString nextNum);
-	//double CalculationSubtract(double num, double num2, wxString nextNum);
+	double CalculationCos(double num, wxString nextNum);
+	double CalculationSin(double num, wxString nextNum);
+	double CalculationTan(double num, wxString nextNum);
 };
 

@@ -120,3 +120,32 @@ double CalculatorProcessor::CalculationMod(double num, double num2, wxString nex
 	return result;
 
 }
+
+double CalculatorProcessor::CalculationCos(double num, wxString nextNum)
+{
+	double result;
+	wxStringTokenizer tokenizer(nextNum, "%" "*" "/" "+" "-" );
+	wxString leftS = tokenizer.GetNextToken();// my first number
+	num = wxAtof(nextNum);
+	num = num;
+	result = cos(num);
+	return result;
+}
+
+double CalculatorProcessor::CalculationSin(double num, wxString nextNum)
+{
+	double result;
+	num = wxAtof(nextNum);
+	num = num;
+	result = sin(num);
+	return result;
+}
+
+double CalculatorProcessor::CalculationTan(double num, wxString nextNum)
+{
+	double result;
+	num = wxAtof(nextNum);
+	num = num;
+	result = tan(num);
+	return result;
+}
