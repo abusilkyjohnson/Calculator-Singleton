@@ -33,5 +33,7 @@ public:
 	double CalculationCos(double num, wxString nextNum);
 	double CalculationSin(double num, wxString nextNum);
 	double CalculationTan(double num, wxString nextNum);
+
+	~CalculatorProcessor();
 };
 

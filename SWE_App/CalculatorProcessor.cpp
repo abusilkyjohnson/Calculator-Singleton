@@ -135,6 +135,8 @@ double CalculatorProcessor::CalculationCos(double num, wxString nextNum)
 double CalculatorProcessor::CalculationSin(double num, wxString nextNum)
 {
 	double result;
+	wxStringTokenizer tokenizer(nextNum, "%" "*" "/" "+" "-");
+	wxString leftS = tokenizer.GetNextToken();// my first number
 	num = wxAtof(nextNum);
 	num = num;
 	result = sin(num);
@@ -144,8 +146,18 @@ double CalculatorProcessor::CalculationSin(double num, wxString nextNum)
 double CalculatorProcessor::CalculationTan(double num, wxString nextNum)
 {
 	double result;
+	wxStringTokenizer tokenizer(nextNum, "%" "*" "/" "+" "-");
+	wxString leftS = tokenizer.GetNextToken();// my first number
 	num = wxAtof(nextNum);
 	num = num;
 	result = tan(num);
 	return result;
+}
+
+ CalculatorProcessor::~CalculatorProcessor()
+{
+	
+		delete calcProcessorSingleton_;
+		calcProcessorSingleton_ = nullptr;
+	
 }

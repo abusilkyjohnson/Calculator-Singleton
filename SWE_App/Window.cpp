@@ -77,7 +77,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 			_textbox->Clear();
 			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
 			_textbox->AppendText(resultString);
-
+			
 		}
 		else if (tokenizer.GetLastDelimiter() == '-')
 		{
@@ -85,7 +85,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 			_textbox->Clear();
 			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
 			_textbox->AppendText(resultString);
-
+			
 		}
 		else if (tokenizer.GetLastDelimiter() == '/')
 		{
@@ -122,7 +122,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		_textbox->Clear();
 		_textbox->AppendText(toDelete);
 	}
-	 if (evtButton->GetId() == COS)
+	 else if (evtButton->GetId() == COS)
 	{
 		double answerHolder = CalculatorProcessor::GetInstance()->CalculationCos(leftNum, _textbox->GetValue());
 		_textbox->Clear();
