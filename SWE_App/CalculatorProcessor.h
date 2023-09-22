@@ -22,6 +22,16 @@ public:
 
 
 	static CalculatorProcessor* GetInstance();
+
+
 	double CalculationAdd(double num, double num2, wxString nextNum);
+	double CalculationSubtract(double num, double num2, wxString nextNum);
+	double Calculationdivide(double num, double num2, wxString nextNum);
+	double CalculationMultiply(double num, double num2, wxString nextNum);
+	double CalculationMod(double num, double num2, wxString nextNum);
+
+	//double CalculationSubtract(double num, double num2, wxString nextNum);
+	//double CalculationSubtract(double num, double num2, wxString nextNum);
+	//double CalculationSubtract(double num, double num2, wxString nextNum);
 };
 
