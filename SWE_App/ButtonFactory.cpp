@@ -1,6 +1,7 @@
 #include "ButtonFactory.h"
 #include "Window.h"
 
+
  wxButton* ButtonFactory::Generate(wxWindow* parent, int ID, const wxString& label,
 	const wxPoint& position, const wxSize& size)
 {

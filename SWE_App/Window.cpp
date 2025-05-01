@@ -75,7 +75,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		{
 			double answerHolder = CalculatorProcessor::GetInstance()->CalculationAdd(leftNum, rightNum, _textbox->GetValue());
 			_textbox->Clear();
-			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+			wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 			_textbox->AppendText(resultString);
 			
 		}
@@ -83,7 +83,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		{
 			double answerHolder = CalculatorProcessor::GetInstance()->CalculationSubtract(leftNum, rightNum, _textbox->GetValue());
 			_textbox->Clear();
-			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+			wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 			_textbox->AppendText(resultString);
 			
 		}
@@ -91,7 +91,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		{
 			double answerHolder = CalculatorProcessor::GetInstance()->Calculationdivide(leftNum, rightNum, _textbox->GetValue());
 			_textbox->Clear();
-			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+			wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 			_textbox->AppendText(resultString);
 
 		}
@@ -99,7 +99,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		{
 			double answerHolder = CalculatorProcessor::GetInstance()->CalculationMultiply(leftNum, rightNum, _textbox->GetValue());
 			_textbox->Clear();
-			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+			wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 			_textbox->AppendText(resultString);
 
 		}
@@ -107,7 +107,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 		{
 			double answerHolder = CalculatorProcessor::GetInstance()->CalculationMod(leftNum, rightNum, _textbox->GetValue());
 			_textbox->Clear();
-			wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+			wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 			_textbox->AppendText(resultString);
 
 		}
@@ -126,7 +126,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	{
 		double answerHolder = CalculatorProcessor::GetInstance()->CalculationCos(leftNum, _textbox->GetValue());
 		_textbox->Clear();
-		wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+		wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 		_textbox->AppendText(resultString);
 
 	}
@@ -134,7 +134,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	{
 		double answerHolder = CalculatorProcessor::GetInstance()->CalculationSin(leftNum, _textbox->GetValue());
 		_textbox->Clear();
-		wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+		wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 		_textbox->AppendText(resultString);
 
 	}
@@ -142,7 +142,7 @@ void Window::OnButtonClick(wxCommandEvent& evt)
 	{
 		double answerHolder = CalculatorProcessor::GetInstance()->CalculationTan(leftNum, _textbox->GetValue());
 		_textbox->Clear();
-		wxString resultString = wxString::Format(wxT("%f"), answerHolder);;
+		wxString resultString = wxString::Format(wxT("%.15g"), answerHolder);
 		_textbox->AppendText(resultString);
 
 	}
